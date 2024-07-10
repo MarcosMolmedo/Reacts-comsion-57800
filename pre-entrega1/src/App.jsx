@@ -2,6 +2,7 @@ import './App.css'
 import Titulo from "./component/Titulo"
 import NavBar from './component/NavBar'
 
+
 function App() {
  
 
@@ -9,7 +10,7 @@ function App() {
     <>
       <div>
         <NavBar />
-        <h1>hola mundo</h1>
+        <h1> My Translator</h1>
         <Titulo />
       </div>
      
