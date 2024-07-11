@@ -1,20 +1,19 @@
 import './App.css'
-import Titulo from "./component/Titulo"
-import NavBar from './component/NavBar'
+import NavBar from "./component/NavBar/NavBar"
 
 
 function App() {
  
 
   return (
-    <>
-      <div>
-        <NavBar />
-        <h1> My Translator</h1>
-        <Titulo />
+ 
+      <div >
+   
+        <NavBar/>    
+
       </div>
-     
-    </>
+ 
+    
   )
 }
 
