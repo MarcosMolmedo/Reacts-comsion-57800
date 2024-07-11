@@ -1,5 +1,7 @@
 import logoMyTranslator from "../../img/logo.png"
 import CartWidget from "./CartWidget"
+ 
+
 
 const NavBar = () => {
     return (
