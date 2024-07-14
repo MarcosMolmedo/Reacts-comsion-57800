@@ -1,0 +1,36 @@
+/* App.css */
+.rectangular-img {
+    width: 80%; /* Ajusta el tamaño según sea necesario */
+    max-width: 300px; /* Ajusta el tamaño máximo según sea necesario */
+    margin-bottom: 15px; /* Espacio inferior */
+  }
+  
+  .rectangular-img img {
+    width: 25%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .titulo {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .tipodetraducciones {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .tipodetraducciones li {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 5px;
+  }
+  
+  .tipodetraducciones .rectangular-img {
+    margin-right: 5px; 
+  }
+  
