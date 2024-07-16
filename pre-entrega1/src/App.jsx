@@ -7,6 +7,7 @@ import chilena from './assets/img/banderachilena.png'
 import mexicana from './assets/img/banderamexicana.png'
 import espana from './assets/img/banderaespana.png'
 import mundo from './assets/img/banderasdelmundo.png'
+import ItemCount from './component/ItemCount/ItemCount.jsx'
 
 
 function App() {
@@ -32,19 +33,21 @@ function App() {
                     <div className="rectangular-img">
                       <img src={argentina} alt="Argentina" className="img-fluid" />
                     </div>
-                    Argentinas
+                   <div className="subtitulos"> <h3>Argentinas</h3></div> 
+                   <ItemCount initial={1} stock={10} /> 
                   </li>
                   <li>
                     <div className="rectangular-img">
                       <img src={uruguay} alt="bandera uruguay" className="img-fluid" />
                     </div>
-                    Uruguayas
+                    <div className="subtitulos"> <h3>Uruguayas</h3></div> 
+                    <ItemCount initial={1} stock={10} /> 
                   </li>
                   <li>
                     <div className="rectangular-img">
-                      <img src={chilena} alt="bandera de chile" className="img-fluid" />
-                    </div>
-                    Chilenas
+                      <img src={chilena} alt="bandera de chile" className="img-fluid" /></div>
+                    <div className="subtitulos"> <h3>Chilenas</h3></div> 
+                    <ItemCount initial={1} stock={10} /> 
                   </li>
                 </ul>
               </div>
@@ -61,19 +64,22 @@ function App() {
                     <div className="rectangular-img">
                       <img src={mexicana} alt="bandera mexicana" className="img-fluid" />
                     </div>
-                    Mexicanas
+                    <div className="subtitulos"> <h3>Mexicanas</h3></div> 
+                    <ItemCount initial={1} stock={10} /> 
                   </li>
                   <li>
                     <div className="rectangular-img">
                       <img src={espana} alt="bandera espana" className="img-fluid" />
                     </div>
-                    Españolas
+                    <div className="subtitulos"> <h3>Españolas</h3></div> 
+                    <ItemCount initial={1} stock={10} /> 
                   </li>
                   <li>
                     <div className="rectangular-img">
                       <img src={mundo} alt="banderasdelmundo" className="img-fluid" />
                     </div>
-                    Otros paises 
+                    <div className="subtitulos"> <h3>otros paises</h3></div> 
+                    <ItemCount initial={1} stock={10} /> 
                   </li>
                 </ul>
               </div>

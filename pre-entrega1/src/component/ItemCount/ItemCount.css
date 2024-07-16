@@ -1,0 +1,22 @@
+.item-count {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .controls button {
+    margin: 0 5px;
+  }
+  
+  .controls span {
+    margin: 0 10px;
+    font-size: 1.2em;
+  }
+  
