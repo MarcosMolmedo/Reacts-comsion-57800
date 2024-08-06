@@ -21,10 +21,10 @@ const NavBar = () => {
                <a className="nav-link active" aria-current="page" href="#">Inicio</a>
              </li>
              <li className="nav-item">
-               <a className="nav-link" href="#">¿Quienes somos?</a>
+               <a className="nav-link" href="#">Traducciones de Espanol a Ingles </a>
              </li>
              <li className="nav-item">
-               <a className="nav-link" href="#">Cotizaciones</a>
+               <a className="nav-link" href="#">Traducciones de Ingles a Espanol</a>
              </li>
            </ul>
            <span className="navbar-text">
