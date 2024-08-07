@@ -23,8 +23,9 @@ function App() {
       <div className="App">
         <NavBar />
         <Routes>
-          <Route path="/spanish-to-english" element={<SpanishToEnglish />} /> {/* Ruta para Traducciones de Español a Inglés */}
-          <Route path="/english-to-spanish" element={<EnglishToSpanish />} /> {/* Ruta para Traducciones de Inglés a Español */}
+          <Route path="tipodetraducciones/spanish-to-english" element={<SpanishToEnglish />} /> {}
+          <Route path="tipodetraducciones/english-to-spanish" element={<EnglishToSpanish />} /> {}
+          <Route path="tipodetraducciones/:idtipodetraducciones" element={ItemListContainer}></Route> 
         </Routes>
         <ItemListContainer saludo="Bienvenidos" />
         <main className="container">

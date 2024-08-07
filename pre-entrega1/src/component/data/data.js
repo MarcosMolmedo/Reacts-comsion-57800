@@ -75,7 +75,7 @@ const productos = [
       nombre: "traduccionesotrospaises",
       descripcion: "",
       precio: "",
-      categoria: "Traducciones-de-ingles-a-espanol",
+      categoria: "traducciones-de-ingles-a-espanol",
       stock: "",
       imagen: ""
     },
