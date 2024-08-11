@@ -30,7 +30,7 @@ const ItemListContainer = ({ saludo }) => {
 
   return (
     <div>
-      <h2>{saludo}</h2>
+      <h2>{ <div><h2>My Translator</h2></div>}</h2>
       {/*profe, aca deberian ir el listaod de productos??? */}
     </div>
   );
