@@ -29,7 +29,7 @@ function App() {
         <ItemListContainer saludo="Bienvenidos" />
         <main className="container">
           <div>
-            <h4>Traducciones de partidas de nacimiento</h4>
+            <h4>Traducciones partidas de nacimiento</h4>
           </div>
           <div className="row mt-4">
             <div className="col-md-6">
