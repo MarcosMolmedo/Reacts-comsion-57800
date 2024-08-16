@@ -30,10 +30,16 @@ const ItemListContainer = ({ saludo }) => {
 
   return (
     <div>
-      <h2>{ <div><h2>My Translator</h2></div>}</h2>
-      {/*profe, aca deberian ir el listaod de productos??? */}
-    </div>
+      <h2>My Translator</h2>
+      <ul>
+        {productos.map((producto) => (
+          <li key={producto.id}>
+            {producto.nombre} - {producto.categoria}
+          </li>
+        ))}
+      </ul>
+    </div> 
   );
-};
+}; 
 
 export default ItemListContainer;
