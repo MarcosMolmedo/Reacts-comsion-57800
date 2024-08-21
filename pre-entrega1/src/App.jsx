@@ -11,15 +11,15 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Routes>
-        {/* Ruta principal que muestra todos los productos */}
+    
         <Route path="/" element={<ItemListContainer saludo="Bienvenidos" />} />
-        {/* Ruta para mostrar productos filtrados por categoría */}
+   
         <Route path="/categoria/:idtipodetraducciones" element={<ItemListContainer />} />
-        {/* Ruta para mostrar el detalle de un producto específico */}
+   
         <Route path="/detalle/:id" element={<ItemDetailContainer />} />
-        {/* Ruta para mostrar el componente SpanishToEnglish */}
+        
         <Route path="/tipodetraducciones/traducciones-de-espanol-a-ingles" element={<SpanishToEnglish />} />
-        {/* Ruta para mostrar el componente EnglishToSpanish */}
+
         <Route path="/tipodetraducciones/traducciones-de-ingles-a-espanol" element={<EnglishToSpanish />} />
       </Routes>
     </BrowserRouter>
