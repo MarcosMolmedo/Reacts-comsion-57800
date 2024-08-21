@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemCount from '../ItemCount/ItemCount.jsx'; 
 import { Link } from 'react-router-dom';
 import mundo from '../../assets/img/banderasdelmundo.png'; 
+
 const EnglishToSpanish = () => {
   const [productos, setProductos] = useState([]);
 

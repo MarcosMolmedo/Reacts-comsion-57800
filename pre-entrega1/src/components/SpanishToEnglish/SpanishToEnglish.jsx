@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ItemCount from '../ItemCount/ItemCount.jsx'; // Reutilizando el contador
+import ItemCount from '../ItemCount/ItemCount.jsx';
 import { Link } from 'react-router-dom';
 import argentina from '../../assets/img/argentina.png';
 import uruguay from '../../assets/img/banderauruguay.png';
@@ -11,7 +11,7 @@ const EnglishToSpanish = () => {
   const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    // Simulación de datos específicos para la página "EnglishToSpanish"
+   
     const productosEnglishToSpanish = [
       { id: 1, nombre: "Traducción  - Argentina", categoria: "argentina" },
       { id: 2, nombre: "Traducción  - Uruguay", categoria: "uruguay" },
