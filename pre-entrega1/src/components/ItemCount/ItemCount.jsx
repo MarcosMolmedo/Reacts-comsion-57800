@@ -2,16 +2,19 @@ import { useState } from 'react';
 import './ItemCount.css'; 
 
 const ItemCount = ({ initial, stock, onAdd }) => {
-  const [count, setCount] = useState(initial);
+  // Establece el estado inicial del contador en 0
+  const [count, setCount] = useState(0);
 
   const aumentar = () => {
+    // Incrementa el contador solo si es menor que el stock máximo
     if (count < stock) {
       setCount(count + 1);
     }
   };
 
   const disminuir = () => {
-    if (count > 1) {
+    // Decrementa el contador solo si es mayor que 0
+    if (count > 0) {
       setCount(count - 1);
     }
   };
