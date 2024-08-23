@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from '../ItemDetail/ItemDetail';
+import { fetchProductoPorId } from '../../data';
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);
@@ -9,7 +10,7 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const fetchProducto = async () => {
       try {
-        const response = await fetchProductoPorId(id); // Simula la función que obtiene el producto por ID
+        const response = await fetchProductoPorId(id); 
         setProducto(response);
       } catch (error) {
         console.error(error);

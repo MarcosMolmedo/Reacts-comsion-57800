@@ -1,9 +1,9 @@
-import argentina from './assets/img/argentina.png'; 
-import uruguay from './assets/img/banderauruguay.png'; 
+import argentina from './assets/img/argentina.png';
+import uruguay from './assets/img/banderauruguay.png';
 import chilena from './assets/img/banderachilena.png';
 import mexicana from './assets/img/banderamexicana.png';
-import espana from './assets/img/banderaespana.png'; 
-import mundo from './assets/img/banderasdelmundo.png'; 
+import espana from './assets/img/banderaespana.png';
+import mundo from './assets/img/banderasdelmundo.png';
 
 const productos = [
   {
@@ -70,4 +70,15 @@ const obtenerProductos = () => {
   });
 };
 
-export default obtenerProductos;
+
+const fetchProductoPorId = (id) => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const producto = productos.find((prod) => prod.id === id);
+      resolve(producto);
+    }, 1000); 
+  });
+};
+
+
+export { fetchProductoPorId, obtenerProductos };

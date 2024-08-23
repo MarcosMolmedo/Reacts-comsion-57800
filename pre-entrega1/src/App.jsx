@@ -21,6 +21,8 @@ function App() {
         <Route path="/tipodetraducciones/traducciones-de-espanol-a-ingles" element={<SpanishToEnglish />} />
 
         <Route path="/tipodetraducciones/traducciones-de-ingles-a-espanol" element={<EnglishToSpanish />} />
+        <Route path="/detalle/:id" element={<ItemDetailContainer />} />
+
       </Routes>
     </BrowserRouter>
   );

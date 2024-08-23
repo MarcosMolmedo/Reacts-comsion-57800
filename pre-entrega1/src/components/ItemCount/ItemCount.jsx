@@ -2,16 +2,19 @@ import { useState } from 'react';
 import './ItemCount.css'; 
 
 const ItemCount = ({ initial, stock, onAdd }) => {
-  const [count, setCount] = useState(initial);
+
+  const [count, setCount] = useState(0);
 
   const aumentar = () => {
+   
     if (count < stock) {
       setCount(count + 1);
     }
   };
 
   const disminuir = () => {
-    if (count > 1) {
+   
+    if (count > 0) {
       setCount(count - 1);
     }
   };
