@@ -9,8 +9,7 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     const fetchProducto = async () => {
       try {
-        const response = await fetchProductoPorId(id); // Simula la función que obtiene el producto por ID
-        setProducto(response);
+        const response = await fetchProductoPorId(id); 
       } catch (error) {
         console.error(error);
       }
