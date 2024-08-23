@@ -11,7 +11,9 @@ const ItemDetailContainer = () => {
     const fetchProducto = async () => {
       try {
         const response = await fetchProductoPorId(id); 
+
         setProducto(response);
+
       } catch (error) {
         console.error(error);
       }

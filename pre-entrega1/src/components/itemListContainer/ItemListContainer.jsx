@@ -5,19 +5,18 @@ import uruguay from '../../assets/img/banderauruguay.png';
 import chilena from '../../assets/img/banderachilena.png';
 import mexicana from '../../assets/img/banderamexicana.png';
 import espana from '../../assets/img/banderaespana.png';
-import mundo from '../../assets/img/banderasdelmundo.png';
 import ItemCount from '../ItemCount/ItemCount.jsx';
 
 
 const ItemListContainer = ({ saludo }) => {
-  const [productos, setProductos] = useState([]); 
+  const [productos, setProductos] = useState([]);
   const { idtipodetraducciones } = useParams();
 
   useEffect(() => {
     const obtenerProductos = async () => {
       try {
-        // Simulación de datos
-        const dataProductos = await fetchProductos(); // Simula la función que obtiene productos
+       
+        const dataProductos = await fetchProductos(); 
 
         if (idtipodetraducciones) {
           const productosFiltrados = dataProductos.filter(
@@ -42,7 +41,7 @@ const ItemListContainer = ({ saludo }) => {
       case 'chile': return chilena;
       case 'mexico': return mexicana;
       case 'espana': return espana;
-      default: return mundo;
+      default: return ''; 
     }
   };
 
