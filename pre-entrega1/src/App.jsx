@@ -5,6 +5,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import EnglishToSpanish from './components/EnglishToSpanish/EnglishToSpanish';
 import SpanishToEnglish from './components/SpanishToEnglish/SpanishToEnglish';
 import './App.css';
+import Checkout from './components/Checkout/Checkout';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/detalle/:id" element={<ItemDetailContainer />} />
         <Route path="/tipodetraducciones/traducciones-de-espanol-a-ingles" element={<SpanishToEnglish />} />
         <Route path="/tipodetraducciones/traducciones-de-ingles-a-espanol" element={<EnglishToSpanish />} />
+        <Route path="/checkout" element={<Checkout />} />     
       </Routes>
     </BrowserRouter>
   );

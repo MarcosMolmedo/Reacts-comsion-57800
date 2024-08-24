@@ -1,13 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import ItemCount from '../ItemCount/ItemCount.jsx';
 import { getDocs, collection, query, where } from "firebase/firestore";
 import db from '../../db/db';
-import argentina from '../../assets/img/argentina.png';
-import uruguay from '../../assets/img/banderauruguay.png';
-import chilena from '../../assets/img/banderachilena.png';
-import mexicana from '../../assets/img/banderamexicana.png';
-import espana from '../../assets/img/banderaespana.png';
-import ItemCount from '../ItemCount/ItemCount.jsx';
 
 const ItemListContainer = ({ saludo }) => {
   const [productos, setProductos] = useState([]);
@@ -18,19 +13,21 @@ const ItemListContainer = ({ saludo }) => {
     const dataDb = await getDocs(productosRef);
     const data = dataDb.docs.map((productDb) => ({
       id: productDb.id,
-      ...productDb.data(),
+      ...productDb.data()
     }));
+
     setProductos(data);
   };
 
   const getProductsByCategory = async () => {
     const productosRef = collection(db, "productos");
-    const q = query(productosRef, where("categoria", "==", idtipodetraducciones));
+    const q = query(productosRef, where("categoria", "==", idtipodetraducciones)); 
     const dataDb = await getDocs(q);
     const data = dataDb.docs.map((productDb) => ({
       id: productDb.id,
-      ...productDb.data(),
+      ...productDb.data()
     }));
+
     setProductos(data);
   };
 
@@ -41,17 +38,6 @@ const ItemListContainer = ({ saludo }) => {
       getProductos();
     }
   }, [idtipodetraducciones]);
-
-  const obtenerImagen = (categoria) => {
-    switch (categoria) {
-      case 'argentina': return argentina;
-      case 'uruguay': return uruguay;
-      case 'chile': return chilena;
-      case 'mexico': return mexicana;
-      case 'espana': return espana;
-      default: return '';
-    }
-  };
 
   return (
     <div>
@@ -67,7 +53,8 @@ const ItemListContainer = ({ saludo }) => {
                 <div className="col-4">
                   <div className="rectangular-img">
                     <Link to={`/detalle/${producto.id}`}>
-                      <img src={obtenerImagen(producto.categoria)} alt={producto.categoria} className="img-fluid" />
+                      {}
+                      <img src={producto.imagen} alt={producto.categoria} className="img-fluid" />
                     </Link>
                   </div>
                 </div>
