@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import ItemCount from '../ItemCount/ItemCount.jsx';
-import ItemList from '../itemListContainer/Item';
-import { getDocs, collection,query,where } from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import db from '../../db/db';
-import { async } from "@firebase/util";
-
-
+import argentina from '../../assets/img/argentina.png';
+import uruguay from '../../assets/img/banderauruguay.png';
+import chilena from '../../assets/img/banderachilena.png';
+import mexicana from '../../assets/img/banderamexicana.png';
+import espana from '../../assets/img/banderaespana.png';
+import ItemCount from '../ItemCount/ItemCount.jsx';
 
 const ItemListContainer = ({ saludo }) => {
   const [productos, setProductos] = useState([]);
@@ -15,64 +16,30 @@ const ItemListContainer = ({ saludo }) => {
   const getProductos = async () => {
     const productosRef = collection(db, "productos");
     const dataDb = await getDocs(productosRef);
-    const data = dataDb.docs.map((productDb) => {
-      return {
-        id: productDb.id, ...productDb.data() 
-      };
-    });
-  
-     setProductos (data)
+    const data = dataDb.docs.map((productDb) => ({
+      id: productDb.id,
+      ...productDb.data(),
+    }));
+    setProductos(data);
   };
 
-    const getProductsByCategory = async () => { 
-      const productosRef = collection (db, "productos")
-      const q = query (productosRef, where ("categoria", "==", idCategoria))
-      const dataDb = await getDocs (q) 
-     
-      const data = dataDb.docs.map((productDb) => {
-        return {
-          id: productDb.id, ...productDb.data() 
-        };
-      });
-    
-      setProductos (data)
-
-
-
-    }
-   
-
+  const getProductsByCategory = async () => {
+    const productosRef = collection(db, "productos");
+    const q = query(productosRef, where("categoria", "==", idtipodetraducciones));
+    const dataDb = await getDocs(q);
+    const data = dataDb.docs.map((productDb) => ({
+      id: productDb.id,
+      ...productDb.data(),
+    }));
+    setProductos(data);
+  };
 
   useEffect(() => {
-
-    if (idCategoria) {
-      getProductsByCategory()
+    if (idtipodetraducciones) {
+      getProductsByCategory();
     } else {
-
-      getProducts ();
+      getProductos();
     }
-   [idCategoria]
-
-    const obtenerProductos = async () => {
-      try {
-
-        const querySnapshot = await getDocs(collection(db, "productos"));
-        const dataProductos = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-
-        if (idtipodetraducciones) {
-          const productosFiltrados = dataProductos.filter(
-            (producto) => producto.categoria === idtipodetraducciones
-          );
-          setProductos(productosFiltrados);
-        } else {
-          setProductos(dataProductos);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    obtenerProductos();
   }, [idtipodetraducciones]);
 
   const obtenerImagen = (categoria) => {
