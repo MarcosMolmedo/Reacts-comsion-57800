@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from '../ItemDetail/ItemDetail';
-import { fetchProductoPorId } from '../../data';
+import {fetchProductoPorId } from '../../data' ;
 
 const ItemDetailContainer = () => {
   const [producto, setProducto] = useState(null);

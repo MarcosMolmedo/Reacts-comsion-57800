@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const ItemDetail = ({ producto }) => {
@@ -19,4 +18,3 @@ const ItemDetail = ({ producto }) => {
 };
 
 export default ItemDetail;
-

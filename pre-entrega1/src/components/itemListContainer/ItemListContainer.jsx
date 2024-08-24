@@ -1,22 +1,63 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import argentina from '../../assets/img/argentina.png';
-import uruguay from '../../assets/img/banderauruguay.png';
-import chilena from '../../assets/img/banderachilena.png';
-import mexicana from '../../assets/img/banderamexicana.png';
-import espana from '../../assets/img/banderaespana.png';
 import ItemCount from '../ItemCount/ItemCount.jsx';
+import ItemList from '../itemListContainer/Item';
+import { getDocs, collection,query,where } from "firebase/firestore";
+import db from '../../db/db';
+import { async } from "@firebase/util";
+
 
 
 const ItemListContainer = ({ saludo }) => {
   const [productos, setProductos] = useState([]);
   const { idtipodetraducciones } = useParams();
 
+  const getProductos = async () => {
+    const productosRef = collection(db, "productos");
+    const dataDb = await getDocs(productosRef);
+    const data = dataDb.docs.map((productDb) => {
+      return {
+        id: productDb.id, ...productDb.data() 
+      };
+    });
+  
+     setProductos (data)
+  };
+
+    const getProductsByCategory = async () => { 
+      const productosRef = collection (db, "productos")
+      const q = query (productosRef, where ("categoria", "==", idCategoria))
+      const dataDb = await getDocs (q) 
+     
+      const data = dataDb.docs.map((productDb) => {
+        return {
+          id: productDb.id, ...productDb.data() 
+        };
+      });
+    
+      setProductos (data)
+
+
+
+    }
+   
+
+
   useEffect(() => {
+
+    if (idCategoria) {
+      getProductsByCategory()
+    } else {
+
+      getProducts ();
+    }
+   [idCategoria]
+
     const obtenerProductos = async () => {
       try {
-       
-        const dataProductos = await fetchProductos(); 
+
+        const querySnapshot = await getDocs(collection(db, "productos"));
+        const dataProductos = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
         if (idtipodetraducciones) {
           const productosFiltrados = dataProductos.filter(
@@ -41,7 +82,7 @@ const ItemListContainer = ({ saludo }) => {
       case 'chile': return chilena;
       case 'mexico': return mexicana;
       case 'espana': return espana;
-      default: return ''; 
+      default: return '';
     }
   };
 
@@ -70,7 +111,7 @@ const ItemListContainer = ({ saludo }) => {
                     </Link>
                     <p>Categoría: {producto.categoria}</p>
                   </div>
-                  <ItemCount initial={1} stock={10} onAdd={(count) => console.log(`Agregado: ${count}`)} />
+                  <ItemCount initial={1} stock={producto.stock} onAdd={(count) => console.log(`Agregado: ${count}`)} />
                 </div>
               </div>
             ))}

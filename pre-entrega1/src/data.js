@@ -9,7 +9,7 @@ const productos = [
   {
     id: "argentina",
     nombre: "Traducciones Argentinas",
-    descripcion: "Traducciones de documentos argentinos.",
+    descripcion: "Traducciones de documentos argentinos",
     precio: "$100",
     categoria: "traducciones-de-espanol-a-ingles",
     stock: 10,
@@ -18,7 +18,7 @@ const productos = [
   {
     id: "uruguayas",
     nombre: "Traducciones Uruguayas",
-    descripcion: "Traducciones de documentos uruguayos.",
+    descripcion: "Traducciones de documentos uruguayos",
     precio: "$110",
     categoria: "traducciones-de-espanol-a-ingles",
     stock: 15,
@@ -27,7 +27,7 @@ const productos = [
   {
     id: "chilenas",
     nombre: "Traducciones Chilenas",
-    descripcion: "Traducciones de documentos chilenos.",
+    descripcion: "Traducciones de documentos chilenos",
     precio: "$120",
     categoria: "traducciones-de-espanol-a-ingles",
     stock: 20,
@@ -36,7 +36,7 @@ const productos = [
   {
     id: "mexicanas",
     nombre: "Traducciones Mexicanas",
-    descripcion: "Traducciones de documentos mexicanos.",
+    descripcion: "Traducciones de documentos mexicanos",
     precio: "$130",
     categoria: "traducciones-de-espanol-a-ingles",
     stock: 25,
@@ -45,7 +45,7 @@ const productos = [
   {
     id: "espanolas",
     nombre: "Traducciones Españolas",
-    descripcion: "Traducciones de documentos españoles.",
+    descripcion: "Traducciones de documentos españoles",
     precio: "$140",
     categoria: "traducciones-de-espanol-a-ingles",
     stock: 30,
@@ -54,7 +54,7 @@ const productos = [
   {
     id: "otrospaises",
     nombre: "Traducciones Otros Países",
-    descripcion: "Traducciones de documentos de otros países.",
+    descripcion: "Traducciones de documentos de otros países",
     precio: "$150",
     categoria: "traducciones-de-ingles-a-espanol",
     stock: 35,
