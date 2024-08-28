@@ -33,14 +33,10 @@ const NavBar = () => {
             <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/tipodetraducciones/traducciones-de-espanol-a-ingles">
-              Traducciones de Español a Inglés
-            </Link>       
+            
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/tipodetraducciones/traducciones-de-ingles-a-espanol">
-              Traducciones de Inglés a Español
-            </Link>
+        categoria partidas de nacimiento
           </li>
         </ul>
         <span className="navbar-text">

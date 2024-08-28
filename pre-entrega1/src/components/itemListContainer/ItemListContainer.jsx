@@ -48,7 +48,9 @@ const ItemListContainer = ({ saludo }) => {
         </div>
         <div className="row mt-4">
           <div className="col-md-6">
-            {productos.map((producto) => (
+            {productos.map((producto) => {
+              //debugger;
+              return (
               <div key={producto.id} className="row mb-3">
                 <div className="col-4">
                   <div className="rectangular-img">
@@ -68,7 +70,7 @@ const ItemListContainer = ({ saludo }) => {
                   <ItemCount initial={1} stock={producto.stock} onAdd={(count) => console.log(`Agregado: ${count}`)} />
                 </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </main>

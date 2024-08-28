@@ -5,6 +5,7 @@ import db from '../../db/db';
 import ItemDetail from '../ItemDetail/ItemDetail';
 
 const ItemDetailContainer = () => {
+  //debugger;
   const [producto, setProducto] = useState(null);
   const { idProducto } = useParams(); 
 

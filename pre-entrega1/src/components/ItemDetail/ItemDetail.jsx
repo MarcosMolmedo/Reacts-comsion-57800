@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from '../ItemCount/ItemCount'; 
 const ItemDetail = ({ producto, addToCart }) => {
+  // debugger;
   const [quantity, setQuantity] = useState(1);
   if (!producto) {
     return <h2>Producto no encontrado</h2>;
