@@ -10,8 +10,8 @@ import CartProvider from './contexts/CartContext.jsx';
 function App() {
  
   return (
-    <CartProvider>
     <BrowserRouter>
+    <CartProvider>
       <NavBar />
       <Routes>
         <Route path="/" element={<ItemListContainer saludo="Bienvenidos" />} />
@@ -20,8 +20,9 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/checkout" element={<Checkout />} />     
       </Routes>
+      </CartProvider>
     </BrowserRouter>
-    </CartProvider>
+   
   );
 }
 

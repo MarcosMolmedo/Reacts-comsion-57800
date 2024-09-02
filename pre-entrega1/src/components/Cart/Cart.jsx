@@ -1,36 +1,32 @@
-import React, { createContext, useState } from 'react';
+import React, { useContext } from 'react';
+import { CartContext } from '../../contexts/CartContext';
+import { Link } from 'react-router-dom';
 
-export const CartContext = createContext();
+const Cart = () => {
+  const { cartItems, removeFromCart, clearCart } = useContext(CartContext);
 
-const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (product, quantity) => {
-    const itemInCart = cartItems.find(item => item.id === product.id);
-    if (itemInCart) {
-      setCartItems(
-        cartItems.map(item =>
-          item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...product, quantity }]);
-    }
-  };
-
-  const removeFromCart = (id) => {
-    setCartItems(cartItems.filter(item => item.id !== id));
-  };
-
-  const clearCart = () => {
-    setCartItems([]);
-  };
+  if (cartItems.length === 0) {
+    return <h2>El carrito está vacío</h2>;
+  }
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
-      {children}
-    </CartContext.Provider>
+    <div>
+      <h1>Carrito de Compras</h1>
+      {cartItems.map((item) => (
+        <div key={item.id}>
+          <h2>{item.nombre}</h2>
+          <p>Precio por unidad: $100{item.precio}</p>
+          <p>Cantidad: {item.quantity}</p>
+          <p>Precio total: ${item.precio * item.quantity}</p>
+          <button onClick={() => removeFromCart(item.id)}>Eliminar</button>
+        </div>
+      ))}
+      <button onClick={clearCart}>Vaciar Carrito</button>
+      <Link to="/checkout">
+        <button>Ir al Checkout</button>
+      </Link>
+    </div>
   );
 };
 
-export default CartProvider;
+export default Cart;

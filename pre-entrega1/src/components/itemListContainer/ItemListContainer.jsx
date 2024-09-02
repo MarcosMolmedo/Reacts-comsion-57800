@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import ItemCount from '../ItemCount/ItemCount.jsx';
 import { getDocs, collection, query, where } from "firebase/firestore";
 import db from '../../db/db';
 
@@ -49,28 +48,27 @@ const ItemListContainer = ({ saludo }) => {
         <div className="row mt-4">
           <div className="col-md-6">
             {productos.map((producto) => {
-              //debugger;
               return (
-              <div key={producto.id} className="row mb-3">
-                <div className="col-4">
-                  <div className="rectangular-img">
-                    <Link to={`/detalle/${producto.id}`}>
-                      {}
-                      <img src={producto.imagen} alt={producto.categoria} className="img-fluid" />
-                    </Link>
+                <div key={producto.id} className="row mb-3">
+                  <div className="col-4">
+                    <div className="rectangular-img">
+                      <Link to={`/detalle/${producto.id}`}>
+                        <img src={producto.imagen} alt={producto.categoria} className="img-fluid" />
+                      </Link>
+                    </div>
+                  </div>
+                  <div className="col-8">
+                    <div className="subtitulos">
+                      <Link to={`/detalle/${producto.id}`}>
+                        <h3>{producto.nombre}</h3>
+                      </Link>
+                      <p>Categoría: {producto.categoria}</p>
+                    </div>
+                    {/* Aquí es donde estaba el ItemCount */}
                   </div>
                 </div>
-                <div className="col-8">
-                  <div className="subtitulos">
-                    <Link to={`/detalle/${producto.id}`}>
-                      <h3>{producto.nombre}</h3>
-                    </Link>
-                    <p>Categoría: {producto.categoria}</p>
-                  </div>
-                  <ItemCount initial={1} stock={producto.stock} onAdd={(count) => console.log(`Agregado: ${count}`)} />
-                </div>
-              </div>
-            )})}
+              )
+            })}
           </div>
         </div>
       </main>
