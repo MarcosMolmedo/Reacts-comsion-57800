@@ -1,6 +1,6 @@
 import logoMyTranslator from "../../img/logo.png";
 import CartWidget from "./CartWidget";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const NavBar = () => {
   return (
@@ -29,14 +29,25 @@ const NavBar = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarText">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+         
+          {/* Enlaces a las categorías */}
           <li className="nav-item">
-            <Link className="nav-link active" aria-current="page" to="/">Inicio</Link>
+            <NavLink className="nav-link" to="/categoria/argentina">Argentina</NavLink>
           </li>
           <li className="nav-item">
-            
+            <NavLink className="nav-link" to="/categoria/uruguay">Uruguay</NavLink>
           </li>
           <li className="nav-item">
-        categoria partidas de nacimiento
+            <NavLink className="nav-link" to="/categoria/chile">Chile</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/categoria/mexico">México</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/categoria/espana">España</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/categoria/resto-del-mundo">Resto del Mundo</NavLink>
           </li>
         </ul>
         <span className="navbar-text">
