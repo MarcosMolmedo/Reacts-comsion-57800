@@ -1,58 +1,36 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { createContext, useState } from 'react';
 
-const Cart = ({ cartItems, removeItem }) => {
-  const navigate = useNavigate();
+export const CartContext = createContext();
 
+const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
 
-  const getTotalPrice = () => {
-    return cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const addToCart = (product, quantity) => {
+    const itemInCart = cartItems.find(item => item.id === product.id);
+    if (itemInCart) {
+      setCartItems(
+        cartItems.map(item =>
+          item.id === product.id ? { ...item, quantity: item.quantity + quantity } : item
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...product, quantity }]);
+    }
+  };
+
+  const removeFromCart = (id) => {
+    setCartItems(cartItems.filter(item => item.id !== id));
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
   };
 
   return (
-    <div className="cart-container">
-      <h2>Mi Carrito</h2>
-      {cartItems.length === 0 ? (
-        <p>No hay productos en el carrito.</p>
-      ) : (
-        <>
-          <table>
-            <thead>
-              <tr>
-                <th>Producto</th>
-                <th>Precio por Unidad</th>
-                <th>Cantidad</th>
-                <th>Precio Parcial</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cartItems.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.name}</td>
-                  <td>${item.price}</td>
-                  <td>{item.quantity}</td>
-                  <td>${item.price * item.quantity}</td>
-                  <td>
-                    <button onClick={() => removeItem(item.id)}>Borrar</button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="cart-summary">
-            <h3>Total: ${getTotalPrice()}</h3>
-            <button onClick={() => navigate('/checkout')}>
-              Seguir con mi compra
-            </button>
-            <Link to="/">
-              <button>Seguir Comprando</button>
-            </Link>
-          </div>
-        </>
-      )}
-    </div>
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, clearCart }}>
+      {children}
+    </CartContext.Provider>
   );
 };
 
-export default Cart;
+export default CartProvider;
